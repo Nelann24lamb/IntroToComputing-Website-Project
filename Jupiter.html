@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicAtlas</title>
+ 
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<style>
+  *{
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+.nav-link{
+  color: white;
+  margin-right: 30px;
+  transition: 400ms;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.nav-link:hover{
+  color: rgba(0, 255, 255, 0.768);
+}
+
+.navbar-brand img{
+  height: 33px;
+  width: auto;
+}
+
+.back{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(jupiter.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#jup{
+  position: absolute;
+  top: 82%;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  padding: 10px;
+}
+
+#jup h1{
+  font-weight: 800;
+  font-size: 3.2rem;
+  letter-spacing: 7px;
+  width: 40%;
+  padding-left: 30px;
+}
+
+#jup p{
+  font-size: 1.2rem;
+  line-height: 30px;
+  padding-left: 30px;
+}
+
+.text-light p{
+  line-height: 40px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.text-light h2{
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2.0rem;
+}
+
+.overview{
+  text-align: justify;
+  padding: 60px;
+  background-color: #06283D;
+}
+
+.overview h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+} 
+
+.overview h2,h5{
+  font-weight: bold;
+}
+
+#table{
+  text-align: justify;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+#table h1{
+  font-size: 30px;
+  font-weight: bold; 
+}
+
+#table th,tr{
+ text-align: center;
+}
+
+
+#stories img:hover{
+  transform: scale(1.03);
+}
+
+.media{
+  padding: 50px 0 50px;
+}
+
+.vid iframe{ 
+  width: 100%;
+  height: 500px;
+  padding-bottom: 20px;
+}
+
+.media h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 30px;
+}
+
+.media h2{
+  padding: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#gallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+#gallery img {
+  margin: 20px;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 4px 7px 7px 6px gray;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+#gallery img:hover{
+  transform: scale(1.03); 
+}
+
+
+footer{
+  padding: 40px;
+  background-color: #06283D;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li{
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+footer p{
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+</style>
+
+<body>
+  <header>
+    <div class="back">
+    <nav class="navbar navbar-expand-lg p-4">
+      <div class="container">
+      <a href="Cosmic.html" class="navbar-brand"><img src="CosmicAtlas Logo.png" alt="CosmicAtlas"></a>
+      <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="Contacts.html" class="nav-link">Contacts</a>
+          </li>
+          <li class="nav- item">
+            <a href="About Us.html" class="nav-link">About Us</a>
+          </li>   
+          <li class="nav-item">
+            <a href="Resources.html" class="nav-link">Resources</a>
+          </li>
+      </ul> 
+     </div>
+    </nav>
+      <div class="container" id="jup">
+       <h1>Jupiter</h1>
+       <p> The largest planet in the solar system, a gas giant which is the fifth in order from the sun.</p>
+      </div>
+      </div>
+    </header>
+</div>
+
+<!--TABLE INFO-->
+
+<section>
+  <div class="text-black">
+    <div class="container">
+    <div id="table">
+      <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Equatorial circumference</th>
+            <td>86,881 miles</td>
+          </tr>
+          <tr>
+            <th>Surface Area</th>
+            <td>23,710,000,000 square miles</td>
+          </tr>  
+          <tr>
+            <th>Density</th>
+            <td>1.33 g/cm3</td>
+          </tr> 
+          <th>Volume</th>
+          <td> 1,430,000,000,000,000 km3</td>
+        </tr>   
+          <tr>
+            <th>Radius</th>
+            <td>44,423 miles</td>
+          </tr>
+          <tr>
+            <th>Mass</th>
+            <td>1.898E27 kg</td>
+          </tr>  
+          </tbody>
+      </table>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!--ABOUT-->
+
+<section class="overview">
+  <div class="container">
+    <div class="text-white">
+    <h1><span class="text-info">About</span> Jupiter</h1>
+    <p><br>Jupiter is the largest planet in our solar system, a gas giant with a strong magnetic field. It is known for its iconic banded appearance, with swirling clouds of different colors. Jupiter has a prominent feature called the Great Red Spot, a massive storm that has been raging for centuries. The planet has a large system of moons, including the four Galilean moons discovered by Galileo Galilei. Jupiter is composed mostly of hydrogen and helium and lacks a solid surface. It plays a crucial role in shaping the architecture of the solar system due to its immense mass and gravitational influence.
+    </p><br><br>
+    <h2>Composition</h2>
+    <p><br> Jupiter, the largest planet in our solar system, is primarily composed of hydrogen (about 75%) and helium (about 24%). These elements make up the majority of its mass, with the remaining 1% consisting of trace elements such as methane, water vapor, and ammonia. Jupiter's lack of a solid surface complicates the determination of its exact composition, and its interior, including a possible dense core, is still not fully understood. The planet's atmosphere transitions from gas to liquid as you move toward its center. Jupiter's immense mass and composition contribute to its unique characteristics and role in the solar system.</p><br>
+    <h2>Structure</h2>
+    <br>
+      <h5>A. Atmosphere</h5>
+      <p>Jupiter's outermost layer is its thick atmosphere, composed primarily of hydrogen and helium, along with trace amounts of methane, water vapor, ammonia, and other compounds. The atmosphere is divided into bands and zones, characterized by different cloud features and wind patterns.</p><br>
+      <h5>B. Interior Layers</h5><br>
+      <ul>
+        <li><h5>Cloud Layers</h5>
+        <p> Beneath the visible clouds in the atmosphere, there are layers of clouds composed of ammonia, ammonium hydrosulfide, and water vapor. These clouds form distinct bands of colors seen on the planet's surface.</p>
+        </li>
+        <li><h5>Hydrogen and Helium Layers</h5>
+        <p> Deeper inside, the hydrogen and helium become increasingly dense. At high pressures and temperatures, hydrogen transitions into different states, including metallic hydrogen, where hydrogen acts as a good conductor of electricity.</p>
+        </li>
+        <li><h5>Core</h5>
+        <p> It is hypothesized that Jupiter has a solid core, although the exact nature and composition of the core are uncertain. The core is believed to be comprised of heavier elements, such as rocks and metals.</p>
+        </li>
+      </ul>
+      <h5>C. Magnetic Field</h5>
+      <p>Jupiter has a powerful magnetic field, much stronger than Earth's. The magnetic field is thought to be generated by the movement of metallic hydrogen in the planet's interior.</p>
+  </div>
+  </div>
+</section>
+
+
+<!--MEDIA-->
+
+<section class="media">
+  <h1>Media</h1>
+<div class="container">
+  <div class="vid">
+    <iframe src="https://www.youtube.com/embed/PtkqwslbLY8?si=KCSEIC9qh2eFwNRM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+ <h2> Gallery</h2>
+  <div id="gallery">
+  <img class="images" src="jupmed6.jpg" alt="Jupiter" style="width:100%;max-width:300px">
+  <img class="images" src="jupmed.jpg" alt="Jupiter" style="width:100%;max-width:300px">
+  <img class="images" src="jupmed2.jpg" alt="Jupiter" style="width:100%;max-width:300px">
+  <img class="images" src="jupiter.jpg" alt="Jupiter" style="width:100%;max-width:300px">
+  <img class="images" src="jupmed4.png" alt="Jupiter" style="width:100%;max-width:300px">
+  <img class="images" src="jupmed5.jpg" alt="Jupiter" style="width:100%;max-width:300px">
+ </div>
+
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+  </div>
+
+<script>
+
+var modal = document.getElementById("myModal");
+var i;
+
+var img = document.getElementsByClassName ("images");
+var modalImg = document.getElementById("img01");
+
+ for(i=0;i< img.length;i++)
+   {    
+    img[i].onclick = function(){
+
+    modal.style.display = "block";
+       modalImg.src = this.src;
+
+ }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() { 
+   modal.style.display = "none";
+}
+</script>
+</section>
+
+
+</body>
+<footer>
+  <div>
+    <ul class="footer">
+      <li> <a href="Cosmic.html">Home</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="About Us.html">About Us</a></li>    
+      <li><a href="Resources.html">Resources</a></li>
+    </ul> 
+  </div>
+  <p> © CosmicAtlas. All Rights Reserved.</p>
+</footer>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicAtlas</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<style>
+  *{
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+  .nav-link{
+  color: white;
+  margin-right: 30px;
+  transition: 400ms;
+}
+
+.nav-link:hover{
+  color: rgba(0, 255, 255, 0.805);
+}
+
+.navbar-brand img{
+  height: 33px;
+  width: auto;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.back{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.1)), url(uranuss\ \(2\).jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#uranus{
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  padding: 10px;
+}
+
+#uranus h1{
+  font-weight: 800;
+  font-size: 3.5rem;
+  letter-spacing: 7px;
+  width: 40%;
+  padding-left: 30px;
+}
+
+#uranus p{
+  font-size: 1.2rem;
+  line-height: 3px;
+  padding-left: 30px;
+  padding-top: 20px;
+}
+
+.text-light p{
+  line-height: 40px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.text-light h2{
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2.0rem;
+}
+
+.overview{
+  text-align: justify;
+  padding: 60px;
+  background-color: #06283D;
+}
+
+.overview h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+} 
+
+.overview h2,h5{
+  font-weight: bold;
+}
+
+#table{
+  text-align: justify;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+#table h1{
+  font-size: 30px;
+  font-weight: bold; 
+}
+
+#table th,tr{
+ text-align: center;
+}
+
+.media{
+  padding: 50px 0 50px;
+}
+
+.vid iframe{ 
+  width: 100%;
+  height: 500px;
+  padding-bottom: 20px;
+}
+
+.media h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 40px;
+} 
+
+.media h2{
+  padding: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#gallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+#gallery img {
+  margin: 20px;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 4px 7px 7px 6px gray;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+#gallery img:hover{
+  transform: scale(1.03);
+}
+
+footer{
+  padding: 40px;
+  background-color: #06283D;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li{
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+footer p{
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+</style>
+
+<body>
+  <header>
+    <div class="back">
+    <nav class="navbar navbar-expand-lg p-4">
+      <div class="container">
+      <a href="Cosmic.html" class="navbar-brand"><img src="CosmicAtlas Logo.png" alt="CosmicAtlas"></a>
+      <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="Contacts.html" class="nav-link">Contacts</a>
+          </li>
+          <li class="nav- item">
+            <a href="About Us.html" class="nav-link">About Us</a>
+          </li>    
+          <li class="nav-item">
+            <a href="Resources.html" class="nav-link">Resources</a>
+          </li>
+      </ul> 
+     </div>
+    </nav>
+      <div class="container" id="uranus">
+       <h1>Uranus</h1>
+       <p> A gaseous cyan-coloured ice giant, the seventh planet from the Sun.</p>
+      </div>
+      </div>
+    </header>
+</div>
+
+
+<!--TABLE INFO-->
+
+<section>
+  <div class="text-black">
+    <div class="container">
+    <div id="table">
+      <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Equatorial circumference</th>
+            <td>99,808 miles</td>
+          </tr>
+          <tr>
+            <th>Surface Area</th>
+            <td>3,130,000,000 square miles</td>
+          </tr>  
+          <tr>
+            <th>Density</th>
+            <td>1.27 g/cm3</td>
+          </tr> 
+          <th>Volume</th>
+          <td> 68,330,000,000,000 km3</td>
+        </tr>   
+          <tr>
+            <th>Radius</th>
+            <td>15,882 miles</td>
+          </tr>
+          <tr>
+            <th>Mass</th>
+            <td>8.681E25 kg</td>
+          </tr>  
+          </tbody>
+      </table>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!--ABOUT-->
+
+<section class="overview">
+  <div class="container">
+    <div class="text-white">
+    <h1><span class="text-info">About</span> Uranus</h1>
+    <p><br>
+      Uranus is the seventh planet from the Sun in our solar system, characterized as an ice giant. It has a unique bluish-green appearance due to the presence of methane in its atmosphere. Uranus rotates on its side, with an extreme axial tilt, resulting in unique seasonal patterns. The planet has a dynamic atmosphere with bands of clouds and a distinct ring system. Uranus lacks a solid surface and is composed mainly of hydrogen, helium, water, ammonia, and methane. Its internal structure includes a presumed rocky core surrounded by icy and gaseous layers.
+    </p><br><br>
+    <h2>Composition</h2>
+    <p><br> Uranus, an ice giant, is primarily composed of hydrogen and helium, making up the majority of its mass. Water ice is a significant component, contributing to its classification as an ice giant. Ammonia and methane are present in the atmosphere, giving Uranus its bluish-green color. The outer layer consists of methane ice clouds. The planet likely has a rocky core surrounded by layers of icy and gaseous materials. Due to its remote location and lack of a solid surface, our understanding of Uranus's composition is based on theoretical models and indirect observations..</p><br>
+    <h2>Structure</h2>
+    <br>
+      <h5>A. Atmosphere</h5>
+      <p>Uranus has a thick atmosphere composed mainly of hydrogen, helium, methane, and trace amounts of other compounds. The upper atmosphere exhibits bands of clouds, with methane giving the planet its bluish-green color.</p><br>
+      <h5>B. Cloud Layers</h5>
+      <p>The outer atmosphere of Uranus contains cloud layers primarily composed of methane ice crystals. These clouds are arranged in bands and may contribute to the planet's distinct appearance.</p><br>
+      <h5>C. Interior Layers</h5><br>
+      <ul>
+        <li><h5>Icy Mantle</h5>
+        <p> Below the atmosphere, there is an icy mantle that includes water, ammonia, and methane ices. This layer contributes to the planet's overall composition and may extend to a considerable depth.
+        </li>
+        <li><h5>Rocky Core</h5>
+        <p>It is believed that Uranus has a rocky core at its center, consisting of heavier elements. The exact size and composition of the core are still uncertain.</p>
+        </li>
+      </ul><br>
+      <h5>D. Magnetic Field</h5>
+      <p>Uranus has a unique magnetic field that is tilted at a significant angle relative to its rotation axis. The magnetic field is likely generated by processes in the planet's interior, possibly involving a layer of electrically conducting fluid, such as a form of water mixed with ammonia.</p>
+  </div>
+  </div>
+</section>
+
+
+<!--MEDIA-->
+
+
+<section class="media">
+  <h1>Media</h1>
+<div class="container">
+  <div class="  vid">
+    <iframe src="https://www.youtube.com/embed/m4NXbFOiOGk?si=GPO7pqAEcTbgHqnx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+<h2> Gallery</h2>
+<div id="gallery">
+  <img class="images" src="uramed.png"style="width:100%;max-width:300px">
+  <img class="images" src="uramed2.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="uramed3.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="uramed4.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="uramed5.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="uranuss (2).jpg"  style="width:100%;max-width:300px">
+ </div>
+
+ <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
+
+<script>
+
+var modal = document.getElementById("myModal");
+var i;
+
+var img = document.getElementsByClassName ("images");
+var modalImg = document.getElementById("img01");
+
+for(i=0;i< img.length;i++)
+ {    
+  img[i].onclick = function(){
+
+  modal.style.display = "block";
+     modalImg.src = this.src;
+
+}
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() { 
+ modal.style.display = "none";
+}
+
+</script>
+</section>
+
+
+
+
+
+</body>
+<footer>
+  <div>
+    <ul class="footer">
+      <li> <a href="Cosmic.html">Home</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="About Us.html">About Us</a></li>    
+      <li><a href="Resources.html">Resources</a></li>
+    </ul> 
+  </div>
+  <p> © CosmicAtlas. All Rights Reserved.</p>
+</footer>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicAtlas</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> 
+</head>
+<style>
+
+  *{
+  margin: 0;
+  padding: 0;
+  font-family: "Orbitron";
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+
+  .nav-link{
+  color: white;
+  margin-right: 33px; 
+  transition: 400ms;
+}
+.nav-link:hover{
+  color: rgba(0, 255, 255, 0.805);
+}
+.navbar-brand img{
+  height: 33px;
+  width: auto;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.back{
+  background-color: #06283D;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+#profile {
+  padding:30px 0 50px 0;
+}
+
+#profile img{
+  height: 250px;
+  width: 250px;
+  border: 2px solid #06283D;
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+}
+
+#profile h1{
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: white;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+#profile p{
+  text-align: justify;
+  font-size: 20px;
+}
+
+footer{
+  padding: 40px;
+  background-color: #06283D;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li{
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+footer p{
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+
+.cont{
+  display: flex;
+  justify-content: center;
+}
+
+</style>
+
+<body>
+  <div class="back">
+  <header>
+    <nav class="navbar navbar-expand-lg p-4">
+      <div class="container">
+      <a href="Cosmic.html" class="navbar-brand"><img src="CosmicAtlas Logo.png" alt="CosmicAtlas"></a>
+      <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="Contacts.html" class="nav-link">Contacts</a>
+          </li>
+          <li class="nav- item">
+            <a href="About Us.html" class="nav-link">About Us</a>
+          </li>    
+          <li class="nav-item">
+            <a href="Resources.html" class="nav-link">Resources</a>
+          </li>
+      </ul> 
+     </div>
+    </nav>
+    </header>
+
+    
+<section id="profile">
+  <h1>About</h1>
+<div class="cont">
+  <img class="img-fluid" src="Profile.png" alt="Profile">
+</div>
+  <div class="container">
+    <div class="d-flex">
+
+        <p class="text-white p-3 text-center"> Hi! I'm<b> Nelann Lloyd Sabando</b>, a 1st Year Student, Bachelor of Science in Computer Science at <b>The University of Southern Mindanao</b>. <br> <br> This website was created for my fulfillment of the Final Project Requirement in my subject <b>"Introduction to Computing"</b>. </p>
+
+    </div>
+  </div>
+</section>
+
+  </div>
+</body>
+
+<!--FOOTER-->
+
+<footer>
+  <div>
+    <ul class="footer">
+      <li> <a href="Cosmic.html">Home</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="About Us.html">About Us</a></li>    
+      <li><a href="Resources.html">Resources</a></li>
+    </ul> 
+  </div>
+  <p> © CosmicAtlas. All Rights Reserved.</p>
+</footer>
+
+</html>

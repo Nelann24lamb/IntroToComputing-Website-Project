@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicAtlas</title>
+ 
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<style>
+  *{
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+  .nav-link{
+  color: white;
+  margin-right: 30px;
+  transition: 400ms;
+}
+
+.nav-link:hover{
+  color: rgba(0, 255, 255, 0.805);
+}
+
+.navbar-brand img{
+  height: 33px;
+  width: auto;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.back{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(comet.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 105vh;
+}
+
+#comet{
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  padding: 10px;
+}
+
+#comet h1{
+  font-weight: 800;
+  font-size: 3.5rem;
+  letter-spacing: 7px;
+  width: 40%;
+  padding-left: 30px;
+}
+
+#comet p{
+  font-size: 1.2rem;
+  margin-top: 20px;
+  line-height: 30px;
+  padding-left: 32px;
+}
+
+.text-light p{
+  line-height: 40px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.text-light h2{
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2.0rem;
+}
+
+.overview{
+  text-align: justify;
+  padding: 60px;
+  background-color: #06283D;
+}
+
+.overview h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+} 
+
+.overview h2,h5{
+  font-weight: bold;
+}
+
+.media{
+  padding: 50px 0 50px;
+}
+
+.vid iframe{ 
+  width: 100%;
+  height: 500px;
+  padding-bottom: 20px;
+}
+
+
+.media h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 40px;
+} 
+.media h2{
+  padding: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#gallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+#gallery img {
+  margin: 20px;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 4px 7px 7px 6px gray;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+#gallery img:hover{
+  transform: scale(1.03); 
+}
+footer{
+  padding: 40px;
+  background-color: #06283D;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li{
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+footer p{
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+</style>
+
+<body>
+  <header>
+    <div class="back">
+    <nav class="navbar navbar-expand-lg p-4">
+      <div class="container">
+      <a href="Cosmic.html" class="navbar-brand"><img src="CosmicAtlas Logo.png" alt="CosmicAtlas"></a>
+      <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="Contacts.html" class="nav-link">Contacts</a>
+          </li>
+          <li class="nav- item">
+            <a href="About Us.html" class="nav-link">About Us</a>
+          </li>    
+          <li class="nav-item">
+            <a href="Resources.html" class="nav-link">Resources</a>
+          </li>
+      </ul> 
+     </div>
+    </nav>
+      <div class="container" id="comet">
+       <h1>Comets</h1>
+       <p>A celestial object consisting of a nucleus of ice and dust.</p>
+      </div>
+      </div>
+    </header>
+</div>
+
+
+
+<!--ABOUT-->
+
+<section class="overview">
+  <div class="container">
+    <div class="text-white">
+    <h1><span class="text-info">About</span> Comets</h1><br>
+    <p>Comets are celestial bodies composed of ice, dust, and volatile gases that orbit the Sun in elongated, elliptical trajectories. Unlike planets, comets spend most of their time in the outer reaches of the solar system, in regions known as the Kuiper Belt or the Oort Cloud. When a comet approaches the Sun, heat causes the ices within it to vaporize, creating a glowing coma (a cloud of gas and dust) around a solid nucleus.</p><br>
+    <h2>Structure</h2>
+    <p>
+      <h5>A. Nucleus</h5>
+      <p>The solid, central core of a comet, often only a few kilometers in diameter. It consists of water ice, frozen gases, dust, and organic compounds.</p>
+      <h5>B. Coma</h5>
+      <p>As a comet nears the Sun, solar radiation causes the nucleus to release gases and dust, creating a bright, glowing coma around the nucleus. The coma can be larger than some planets.</p>
+      <h5>C. Tail</h5>
+      <p>The Sun's radiation and solar wind push the released materials away from the Sun, forming a glowing tail that always points away from the Sun. There are two types of tails: a dust tail and an ion tail.</p>
+      <ul>
+        <li>
+          <p> <h5>Dust Tail</h5> Composed of small dust particles driven by sunlight, it appears yellowish and follows a slightly curved path.</p>
+        </li>
+        <li>
+          <p><h5>Ion Tail</h5> Composed of ionized gases, it is pushed directly away from the Sun by the solar wind and can appear bluish. Ion tails can be very straight and can point in a direction different from the dust tail.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </div>
+  </div>
+</section>
+
+
+<!--MEDIA-->
+
+<section class="media">
+  <h1>Media</h1>
+<div class="container">
+  <div class="vid">
+    <iframe src="https://www.youtube.com/embed/yB9HHyPpKds?si=9Irpr-Udc_uqy4WV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+
+ <h2> Gallery</h2>
+  <div id="gallery">
+  <img class="images" src="commed.jpg"  style="width:100%;max-width:300px">
+  <img class="images" src="commed2.jpg"  style="width:100%;max-width:300px">
+  <img class="images" src="commed3.jpg"  style="width:100%;max-width:300px">
+  <img class="images" src="commed4.jpg"  style="width:100%;max-width:300px">
+  <img class="images" src="conmed5.jpg"  style="width:100%;max-width:300px">
+  <img class="images" src="comet.jpg"  style="width:100%;max-width:300px">
+ </div>
+
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01">
+  </div>
+
+<script>
+
+var modal = document.getElementById("myModal");
+var i;
+
+var img = document.getElementsByClassName ("images");
+var modalImg = document.getElementById("img01");
+
+ for(i=0;i< img.length;i++)
+   {    
+    img[i].onclick = function(){
+
+    modal.style.display = "block";
+       modalImg.src = this.src;
+
+ }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() { 
+   modal.style.display = "none";
+}
+</script>
+</section>
+
+
+</body>
+<footer>
+  <div>
+    <ul class="footer">
+      <li> <a href="Cosmic.html">Home</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="About Us.html">About Us</a></li>    
+      <li><a href="Resources.html">Resources</a></li>
+    </ul> 
+  </div>
+  <p> © CosmicAtlas. All Rights Reserved.</p>
+</footer>
+</html>

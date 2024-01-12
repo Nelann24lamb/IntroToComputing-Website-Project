@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicAtlas</title>
+ 
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<style>
+  *{
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+  .nav-link{
+  color: white;
+  margin-right: 30px;
+  transition: 400ms;
+}
+
+.nav-link:hover{
+  color: rgba(0, 255, 255, 0.805);
+}
+
+.navbar-brand img{
+  height: 33px;
+  width: auto;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.back{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(sunback.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#sun{
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  padding: 10px;
+}
+
+#sun h1{
+  font-weight: 800;
+  font-size: 3.5rem;
+  letter-spacing: 7px;
+  width: 40%;
+  padding-left: 30px;
+}
+
+#sun p{
+  font-size: 1.2rem;
+  line-height: 30px;
+  padding-left: 30px;
+}
+
+.text-light p{
+  line-height: 40px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.text-light h2{
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2.0rem;
+}
+
+.overview{
+  text-align: justify;
+  padding: 60px;
+  background-color: #06283D;
+}
+
+.overview h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+} 
+
+.overview h2,h5{
+  font-weight: bold;
+}
+
+#table{
+  text-align: justify;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+#table h1{
+  font-size: 30px;
+  font-weight: bold; 
+}
+
+#table th,tr{
+ text-align: center;
+}
+
+.media{
+  padding: 50px 0 50px;
+}
+
+.media h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 40px;
+} 
+
+.vid iframe{ 
+  width: 100%;
+  height: 500px;
+  padding-bottom: 20px;
+}
+
+.media h2{
+  padding: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#gallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+#gallery img {
+  margin: 20px;
+  border: 2px solid black;
+  border-radius: 15px;
+  box-shadow: 4px 7px 7px 6px gray;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+#gallery img:hover{
+  transform: scale(1.03);
+}
+
+
+footer{
+  padding: 40px;
+  background-color: #06283D;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li{
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+footer p{
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+</style>
+
+<body>
+  <header>
+    <div class="back">
+    <nav class="navbar navbar-expand-lg p-4">
+      <div class="container">
+      <a href="Cosmic.html" class="navbar-brand"> <img src="CosmicAtlas Logo.png" alt="CosmicAtlas"/></a>
+      <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="Contacts.html" class="nav-link">Contacts</a>
+          </li>
+          <li class="nav- item">
+            <a href="About Us.html" class="nav-link">About Us</a>
+          </li>    
+          <li class="nav-item">
+            <a href="Resources.html" class="nav-link">Resources</a>
+          </li>
+      </ul> 
+     </div>
+    </nav>
+      <div class="container" id="sun">
+       <h1>Sun</h1>
+       <p> A luminous celestial body around which the earth and other planets revolve.</p>
+      </div>
+      </div>
+    </header>
+</div>
+
+
+<!--TABLE INFO-->
+
+<section>
+  <div class="text-black">
+    <div class="container">
+    <div id="table">
+      <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Equatorial circumference</th>
+            <td>2,715,395.6 miles</td>
+          </tr>
+          <tr>
+            <th>Surface Area</th>
+            <td>2,347,017,636,988 square miles</td>
+          </tr>  
+          <tr>
+            <th>Density</th>
+            <td>1.41 g/cm3</td>
+          </tr> 
+          <th>Volume</th>
+          <td> 1,409,272,569,059,860,000 km3</td>
+        </tr>   
+          <tr>
+            <th>Radius</th>
+            <td>432,168.6 miles</td>
+          </tr>
+          <tr>
+            <th>Mass</th>
+            <td>1.989E30 kg</td>
+          </tr>  
+          </tbody>
+      </table>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!--ABOUT-->
+
+<section class="overview">
+  <div class="container">
+    <div class="text-white">
+    <h1><span class="text-info">About</span> The Sun</h1>
+    <p><br>A star around which Earth and the other components of the solar system revolve. It is the dominant body of the system, constituting more than <b>99%</b> of its entire mass. The Sun is the source of an enormous amount of energy, a portion of which provides Earth with the light and heat necessary to support life.<br><br> It is part of the <b> "observable universe"</b>, the region of space that humans can actually or theoretically observe with the aid of technology. Unlike the observable universe, the universe is possibly infinite.
+    </p><br><br>
+    <h2>Composition</h2>
+    <p><br> Sun is composed of a combination of plasma, hydrogen, helium, and other gases and metals. It is not a solid mass, but rather a series of layers with different functions. The sun's magnetic field is controlled by a circular electric current, rotating layers, and the sun's ability to conduct electricity.<br><br> The sun rotates counterclockwise, taking 25-35 days to complete a single rotation. It orbits clockwise around the center of the Milky Way, 24,000-26,000 light-years away from the galactic center, taking about 225 million to 250 million years to orbit one time. The sun's mass is 5,628 times the mass of Earth. The sun's layers are measured by their percentage of the sun's total radius.</p><br>
+    <h2>Structure</h2>
+    <p>
+      <br/>The sun is made up of six layers: <i>core, radiative zone, transition zone, convective zone, photosphere, chromosphere,</i> and <i>corona.</i>
+    </p>
+      <br><br>
+      <h5>A. Core</h5>
+      <p>The sun's core, a massive furnace with temperatures exceeding 15.7 million kelvin, is the only location where nuclear fusion reactions can occur. This process, known as a proton-proton chain reaction, releases enormous amounts of energy, far greater than that from a hydrogen bomb explosion. The sun emits photons and neutrinos, which carry and emit the sun's light, heat, and energy, in all directions, continuously.</p>
+      <h5>B. Radiative zone</h5>
+      <p>The radiative zone of the sun, spanning 25-70% of its radius, is where heat from the core cools significantly. This zone is facilitated by thermal radiation, where photons released in the core travel, absorb, and re-absorb for 200,000 years.</p>
+      <h5>C.Transition zone</h5>
+      <p>The tachocline transition zone, created by the sun's differential rotation, is formed between the radiative and convective zones. This region, influenced by the sun's equator's faster rotation, changes rapidly.</p>
+      <h5>D. Convective zone</h5>
+      <p>The convective zone, located around 70% of the sun's radius, is where the sun's heat is transferred through thermal convection through thermal columns, similar to boiling water or hot wax in a lava lamp.</p>
+      <h5>E. Photosphere</h5>
+      <p>The photosphere, the visible surface of the sun, is 400 kilometers thick and has temperatures reaching 6,000K. Thermal columns in the convection zone, resembling boiling oatmeal, are visible in the photosphere. These columns, typically over 1,000 kilometers, last eight to 20 minutes before dissolving and forming new ones. Supergranules can be up to 30,000 kilometers wide and last up to 24 hours.</p>
+      <h5>F. Chromosphere</h5>
+      <p>The pinkish-red chromosphere, 2,000 kilometers thick, is a layer of hot gas that reflects the sun's coolest temperature at 4,400K. Its pink color is due to its temperature increasing with altitude. The chromosphere produces spicules, similar to solar flares, which are 500 kilometers in diameter and last 15 minutes before dissolving.</p>
+      <h5>G. Corona</h5>
+      <p>The corona, the outermost layer of the solar atmosphere, extends millions of kilometers into space. It contains gases burning at one million K and moving at 90 miles per second. Some particles reach 400 km per second, forming the solar wind. Coronal loops and coronal holes near the sun's poles allow faster wind passage.</p>
+  </div>
+  </div>
+</section>
+
+
+<!--MEDIA-->
+
+<section class="media">
+  <h1>Media</h1>
+<div class="container">
+  <div class="  vid">
+    <iframe src="https://www.youtube.com/embed/2HoTK_Gqi2Q?si=PFB-x_0ewGJILq63" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+
+<h2> Gallery</h2>
+<div id="gallery">
+  <img class="images" src="sunmed.jpg"style="width:100%;max-width:300px">
+  <img class="images" src="sunmed2.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="sunmed3.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="sunmed4.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="sunmed5.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="sunback.jpg"  style="width:100%;max-width:300px">
+ </div>
+
+ <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
+
+<script>
+
+var modal = document.getElementById("myModal");
+var i;
+
+var img = document.getElementsByClassName ("images");
+var modalImg = document.getElementById("img01");
+
+for(i=0;i< img.length;i++)
+ {    
+  img[i].onclick = function(){
+
+  modal.style.display = "block";
+     modalImg.src = this.src;
+
+}
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() { 
+ modal.style.display = "none";
+}
+</script>
+</section>
+
+
+</body>
+<footer>
+  <div>
+    <ul class="footer">
+      <li> <a href="Cosmic.html">Home</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="About Us.html">About Us</a></li>    
+      <li><a href="Resources.html">Resources</a></li>
+    </ul> 
+  </div>
+  <p> © CosmicAtlas. All Rights Reserved.</p>
+</footer>
+</html>

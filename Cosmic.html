@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicAtlas</title>
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
+</head>
+<body>
+<style>
+  
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Orbitron";
+  letter-spacing: 2px;
+  box-sizing: border-box;
+}
+
+ .nav-link{
+  color:white;
+  margin: 8px 33px 8px 8px;
+  padding: 0 10px;
+  transition: 400ms;
+}
+
+.nav-link:hover{
+  color: rgba(0, 255, 255, 0.805);
+}
+
+.navbar-brand img{
+  height: 33px;
+  width: auto;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.back{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6),rgba(0, 0, 0, 0.6)), url( solar.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 110vh;
+}
+
+.text-light p{
+  line-height: 40px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+#welcome{
+  font-size: 2.8rem;
+  text-shadow:
+    1px 1px 1px black,
+    3px 3px 1px teal;
+}
+
+
+.text-light h2{
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2.0rem;
+}
+
+.overview{
+  text-align: justify;
+  padding: 60px;
+  background-color: #06283D;
+}
+
+.overview h1{
+  font-weight: bold;
+}
+
+.overview small{
+  opacity: 70%;
+}
+
+#explore{
+  text-align: center;
+  padding: 60px 60px 80px;
+}
+
+#explore h1{
+  font-size: 40px;
+  font-weight: bold;
+  padding-bottom: 40px;
+}
+
+#media video{
+  padding-bottom: 50px;
+  width: 70%;
+  height: 500px;
+}
+
+.sunback{
+background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(sunback.jpg);
+background-size: cover;
+background-position: center;
+width: 100%;
+height: 60vh;
+}
+
+
+#sun p{
+  padding-top: 20px;
+}
+
+.moonback{
+background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(moon.jpg);
+background-size: cover;
+background-position: center;
+width: 100%;
+height: 60vh;
+}
+
+
+#moon p{
+  padding-top: 20px;
+}
+
+.content{
+  padding: 20px;
+}
+
+.carousel{
+  background-color: #06283D;
+  padding: 20px 0 52px 0;
+}
+
+
+.carousel-inner{
+  align-content: center;
+  align-items: center;
+}
+
+.carousel-inner h2{
+  font-weight: bold;
+  letter-spacing: 3px;  
+}
+
+.carousel-item img{
+  margin: 0 auto;
+  cursor: pointer;
+ transition: 400ms;
+}
+
+.carousel-item img:hover{
+  transform: scale(1.03); 
+}
+
+.text-center h1{
+  font-size: 40px;
+  font-weight: bold;
+  padding: 40px 30px 5px 30px;
+}
+
+#moons{
+  text-align: center;
+  padding: 40px 50px 80px 50px;
+}
+
+
+#otherCS h1{
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #06283D;
+}
+
+.astback{
+background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(asteroid.jpg);
+background-size: cover;
+background-position: center;
+width: 100%;
+height: 60vh;
+}
+
+#asteroids p{
+  padding-top: 15px;
+}
+
+.comback{
+background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(comet.jpg);
+background-size: cover;
+background-position: center;
+width: 100%;
+height: 60vh;
+}
+
+#comet p{
+  padding-top: 15px;
+}
+
+footer{
+  padding: 40px;
+  background-color: #06283D;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li{
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+footer p{
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+</style>
+
+<!--WELCOME-->
+<header>
+<div class="back">
+<nav class="navbar navbar-expand-lg p-4">
+  <div class="container">
+  <a href="Cosmic.html" class="navbar-brand"> <img src="CosmicAtlas Logo.png" alt="CosmicAtlas"></a>
+  <button 
+  class="navbar-toggler" 
+  type="button" 
+  data-bs-toggle="collapse" 
+  data-bs-target="#navmenu">
+  <span class="navbar-toggler-icon"></span>
+  </button>   
+    <div class="collapse navbar-collapse" id="navmenu">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a href="Contacts.html" class="nav-link">Contacts</a>
+      </li
+      <li class="nav- item">
+        <a href="About Us.html" class="nav-link">About Us</a>
+      </li>    
+      <li class="nav-item">
+        <a href="Resources.html" class="nav-link">Resources</a>
+      </li>
+  </ul> 
+ </div>
+</nav>
+<div class="container">
+  <div class="text-light position-absolute top-50 start-50 translate-middle text-center pt-3">
+    <h1 id="welcome" class="text-info">BEGIN EXPLORING</h1>
+    <p>Embark on a cosmic journey with us as we explore the vastness of our very own <span class="text-info"><b> Solar System </b></span>!</p>
+  </div>
+</div>
+</div>
+</header>
+
+<!--ABOUT SOLAR SYSTEM-->
+
+<section class="overview">
+  <div class="container">
+    <div class="text-white">
+    <h1><span class="text-info">About</span>  Solar System</h1>
+    <p><br>The solar system is an assembly made up of the Sun, which is an average star in the Milky Way Galaxy, and the bodies that orbit it, including the comets and other icy bodies, the eight (formerly nine) planets and the more than 210 known planetary satellites (moons) that orbit each of them, numerous asteroids, some of which have their own satellites, and vast stretches of extremely tenuous gas and dust known as the interplanetary medium.<br><br> The solar system is a component of the "observable universe," which is the area of space that, because to technological advancements, humanity are able to view in real life or in theory. The universe may be limitless, in contrast to the observable universe.</p>
+    <small><i>The name of the Solar System is derived from the Sun's Latin name <b>Sol</b>, and is because of that sometimes also called Sol System.</i></small>
+  </div>
+  </div>
+</section>
+
+<!--EXPLORE ABOUT SOLAR SYSTEM-->
+
+<section id="explore" class="bg-dark">
+  <div class="container text-light">
+    <h1><span class="text-info">Explore</span> The Solar System </h1>
+    <div id="media" class="container">
+      <video src="Solar System 101 _ National Geographic.mp4" controls></video>
+    </div>
+    <h1>Articles</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="card h-100 card border-info mb-3">
+          <a href="https://www.space.com/how-did-solar-system-form">
+          <img src="solarsystem.jpg" class="card-img-top" alt="fact 2"></a>
+          <div class="card-body">
+            <h4 class="card-title"><b>The beginning</b></h4>
+            <p class="card-text"><hr>The Solar System was formed 4.5 billion years ago. </p>
+          </div>
+          <div class="card-footer">
+          
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 card border-info mb-3">
+          <a href="https://www.livescience.com/our-solar-system.html">
+          <img src="solar grid.jpg" class="card-img-top" alt="fact 1"></a>
+          <div class="card-body">
+            <h4 class="card-title"><b>Our Home</b></h4>
+            <p class="card-text"><hr>All about our Home; The Solar System.</p>
+          </div>
+          <div class="card-footer">
+            
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 card border-info mb-3">
+         <a href="https://www.livescience.com/how-long-galactic-year.html">
+         <img src="fact solar.jpg" class="card-img-top" alt="fact 3"></a> 
+          <div class="card-body">
+            <h4 class="card-title"><b>Galactic Year</b></h4>
+            <p class="card-text"><hr>The solar system takes about 230 million years to complete a <i>Galactic Year.</i> </p>
+          </div>
+          <div class="card-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</section>
+
+<!--PLANETS-->
+
+<section class="carousel">
+  <div class="container box">
+    <div class="col-xs-8">
+    <div class="text-center text-light">
+      <h1><span class="text-info">Explore</span> Planets</h1> </div>
+  <div id="planets" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#planets" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Sun"></button>
+      <button type="button" data-bs-target="#planets" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#planets" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#planets" data-bs-slide-to="3" aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#planets" data-bs-slide-to="4" aria-label="Slide 5"></button>
+      <button type="button" data-bs-target="#planets" data-bs-slide-to="5" aria-label="Slide 6"></button>
+      <button type="button" data-bs-target="#planets" data-bs-slide-to="6" aria-label="Slide 7"></button>
+      <button type="button" data-bs-target="#planets" data-bs-slide-to="7" aria-label="Slide 8"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a href="Mercury.html">
+        <img src="merc.jpg" class="d-block w-75 h-50" alt="Mercury Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><span class="text-info">Explore</span> Mercury</h2>
+          <p>A small planet that is the closest to the sun in the solar system, 
+             sometimes visible to the naked eye just after sunset.</p>
+        </div>
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="Venus.html">
+        <img src="venus.jpg" class="d-block w-75 h-50" alt="Venus Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><span class="text-info">Explore</span> Venus</h2>
+          <p>The second planet, the brightest celestial object after the sun and moon and frequently appearing in the twilight sky as the evening or morning star.</p>
+        </div>
+      </a>
+      </div>
+      <div class="carousel-item">
+        <a href="Earth.html">
+        <img src="earth.jpg" class="d-block w-75 h-50" alt="Earth Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><span class="text-info">Explore</span> Earth</h2>
+          <p>The third planet from the Sun and the only astronomical object known to harbor life.</p>
+        </div>
+      </a>
+      </div>
+      <div class="carousel-item">
+        <a href="Mars.html">
+        <img src="mars.jpg" class="d-block w-75 h-50" alt="Mars Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><span class="text-info">Explore</span> Mars</h2>
+          <p>A small reddish planet which is the fourth in order from the sun and is periodically visible to the naked eye.</p>
+        </div>
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a href="Jupiter.html">
+        <img src="jupiter.jpg" class="d-block w-75 h-50" alt="Jupiter Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><span class="text-info">Explore</span> Jupiter</h2>
+          <p>The largest planet in the solar system, a gas giant which is the fifth in order from the sun.</p>
+        </div>
+      </a>
+      </div>
+      <div class="carousel-item">
+        <a href="Saturn.html">
+        <img src="saturn.jpg" class="d-block w-75 h-50" alt="Saturn Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><span class="text-info">Explore</span> Saturn</h2>
+          <p>The sixth planet from the sun in the solar system, circled by a system of broad flat rings.</p>
+        </div>
+      </a>
+      </div>
+      <div class="carousel-item">
+        <a href="Uranus.html">
+        <img src="uranuss (2).jpg" class="d-block w-75 h-50" alt="Uranus Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><span class="text-info">Explore</span> Uranus</h2>
+          <p>A gaseous cyan-coloured ice giant, the seventh planet from the Sun.</p>
+        </div>
+      </a>
+      </div>
+      <div class="carousel-item">
+        <a href="Neptune.html">
+        <img src="neptune.jpg" class="d-block w-75 h-50" alt="Neptune Image">
+        <div class="carousel-caption d-none d-md-block">
+          <h2><span class="text-info">Explore</span> Neptune</h2>
+          <p>The eighth and farthest planet from the Sun.</p>
+        </div>
+      </a>
+      </div>
+    </div>
+    <div id="button">
+    <button class="carousel-control-prev" type="button" data-bs-target="#planets" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#planets" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </section>
+
+<!--SUN-->
+
+<section id="sun">
+  <div class="text-light">
+    <div class="sunback">
+      <div class="content">
+      <div class="container pt-5 ">
+      <h2><span class="text-info">Explore</span> The Sun</h2>
+      <p>
+        A luminous celestial body around which the earth and other planets revolve.
+      </p>
+      <a href="Sun.html">
+      <button type="button" class="btn btn-black btn btn-outline-info"><b>Explore</b></button>
+      </a>
+    </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!--SATELLITES(MOONS)-->
+
+<section id="moon">
+  <div class="text-light">
+    <div class="moonback">
+      <div class="content">
+      <div class="container pt-5 ">
+      <h2><span class="text-info">Explore</span> Moons</h2>
+      <p>
+         Planetary-mass objects that formed a differentiated rocky bodies.
+      </p>
+      <a href="Moons.html">
+      <button type="button" class="btn btn-black btn btn-outline-info"><b>Explore</b></button>
+    </a>
+    </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!--OTHER CELESTIAL BODIES-->
+
+<section id="otherCS">
+    <div class="text-light">
+    <div id="asteroids">
+      <div class="astback">
+        <div class="content">
+        <div class="container pt-5 ">
+        <h2><span class="text-info">Explore</span> Asteroids</h2>
+        <p>Small rocky bodies orbiting the Sun.</p>
+        <a href="Asteroid.html">
+        <button type="button" class="btn btn-black btn btn-outline-info"><b>Explore</b></button></a>
+      </div>
+      </div>
+    </div>
+    </div>
+
+    <div id="comet">
+      <div class="comback">
+        <div class="content">
+        <div class="container pt-5">
+        <h2><span class="text-info">Explore</span> Comets</h2>
+        <p>A celestial object consisting of a nucleus of ice and dust.</p>
+        <a href="Comet.html">
+        <button type="button" class="btn btn-black btn btn-outline-info"><b>Explore</b></button>
+      </a>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+</section>
+</body>
+
+<!--FOOTER-->
+
+<footer>
+  <div>
+    <ul class="footer">
+      <li> <a href="Cosmic.html">Home</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="About Us.html">About Us</a></li>    
+      <li><a href="Resources.html">Resources</a></li>
+    </ul> 
+  </div>
+  <p> © CosmicAtlas. All Rights Reserved.</p>
+</footer>
+
+  
+</html>

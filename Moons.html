@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicAtlas</title>
+ 
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<style>
+  *{
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+  .nav-link{
+  color: white;
+  margin-right: 30px;
+  transition: 400ms;
+}
+
+.nav-link:hover{
+  color: rgba(0, 255, 255, 0.805);
+}
+
+.navbar-brand img{
+  height: 33px;
+  width: auto;
+}
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.back{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(moon.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#moon{
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  padding: 10px;
+}
+
+#moon h1{
+  font-weight: 800;
+  font-size: 3.5rem;
+  letter-spacing: 7px;
+  width: 40%;
+  padding-left: 30px;
+}
+
+#moon p{
+  font-size: 1.2rem;
+  line-height: 30px;
+  padding-left: 30px;
+}
+
+.text-light p{
+  line-height: 40px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.text-light h2{
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2.0rem;
+}
+
+.overview{
+  text-align: justify;
+  padding: 60px;
+  background-color: #06283D;
+}
+
+.overview h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+} 
+
+.overview h2,h5{
+  font-weight: bold;
+}
+
+table{
+  width: 100%;
+}
+
+#table{
+  text-align: justify;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#table th{
+ font-size: 20px;
+ padding-left: 10px;
+}
+
+#table td {
+  text-align: center;
+  padding: 5px;
+}
+
+#table td a{
+  text-decoration: none;
+  color: black;
+}
+
+#button {
+  border-radius: 8px;
+  background-color: #06283D ;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 10px 20px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+#button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+}
+
+#button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.media{
+  padding: 50px 0 50px;
+}
+
+.vid iframe{ 
+  width: 100%;
+  height: 500px;
+  padding-bottom: 20px;
+}
+
+
+.media h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 40px;
+} 
+
+footer{
+  padding: 40px;
+  background-color: #06283D;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li{
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+footer p{
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+</style>
+
+<body>
+  <header>
+    <div class="back">
+    <nav class="navbar navbar-expand-lg p-4">
+      <div class="container">
+      <a href="Cosmic.html" class="navbar-brand"><img src="CosmicAtlas Logo.png" alt="CosmicAtlas"></a>
+      <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="Contacts.html" class="nav-link">Contacts</a>
+          </li>
+          <li class="nav- item">
+            <a href="About Us.html" class="nav-link">About Us</a>
+          </li>    
+          <li class="nav-item">
+            <a href="Resources.html" class="nav-link">Resources</a>
+          </li>
+      </ul> 
+     </div>
+    </nav>
+      <div class="container" id="moon">
+       <h1>Moons</h1>
+       <p>Planetary-mass satellites that formed a differentiated rocky bodies.</p>
+      </div>
+      </div>
+    </header>
+</div>
+
+<!--KNOWN MOONS-->
+
+<section>
+  <div id="table">
+  <div class="text-black">
+    <div class="container">
+      <table>
+        <tr>
+          <th>Moons of Earth</th>
+          <td><a href="https://science.nasa.gov/moon/"><button id="button"><span>Explore</span></button></a></td>
+        </tr>
+        <tr>
+          <th>Moons of Mars</th>
+          <td><a href="https://science.nasa.gov/mars/moons/"><button id="button"><span>Explore</span></button></a></td>
+        </tr>  
+        <tr>
+          <th>Moons of Jupiter</th>
+          <td><a href="https://science.nasa.gov/jupiter/moons/"><button id="button"><span>Explore</span></button></a></td>
+        </tr> 
+        <th>Moons of Saturn</th>
+        <td><a href="https://science.nasa.gov/saturn/moons/"><button id="button"><span>Explore</span></button></a></td>
+      </tr>   
+        <tr>
+          <th>Moons of Uranus</th>
+          <td><a href="https://science.nasa.gov/uranus/moons/"><button id="button"><span>Explore</span></button></a></td>
+        </tr>
+        <tr>
+          <th>Moons of Neptune</th>
+          <td><a href="https://science.nasa.gov/neptune/moons/"><button id="button"><span>Explore</span></button></a></td>
+        </tr>  
+        <tr>
+      </table>
+  <br><p>Current known moons/satellites in our Solar System: <b>270 satellites</b></p>
+   <small><i>—According to the <b>NASA/JPL Solar System Dynamics</b></i></small>
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!--ABOUT-->
+
+<section class="overview">
+  <div class="container">
+    <div class="text-white">
+    <h1><span class="text-info">About</span> Moons</h1>
+    <p><br>
+      Moons, also called natural satellites , come in many shapes, sizes and types. They are generally solid bodies, and few have atmospheres. Most planetary moons probably formed out the discs of gas and dust circulating around planets in the early solar system.
+<br><br>
+      There are hundreds of moons in our solar system, even asteroids have been found to have small companion moons. Of the terrestrial (rocky) planets of the inner solar system, neither Mercury nor Venus have any moons at all, Earth has one and Mars has its two small moons. In the outer solar system, the gas giants Jupiter and Saturn and the ice giants Uranus and Neptune have dozens of moons. As these planets grew in the early solar system, they were able to capture smaller objects with their large gravitational fields. </p> <br>
+  <h2>Composition</h2><br>
+    <h5>Rocky Moons</h5>
+      <p>Moons like Earth's Moon, Io, and Europa have rocky compositions, with surfaces dominated by rocks and minerals.</p>
+    <h5>Icy Moons</h5>
+      <p>Moons such as Europa, Ganymede, and Callisto (Jupiter's moons), and Enceladus and Titan (Saturn's moons) have icy surfaces, sometimes with subsurface oceans.</p>
+    <h5>Mixed Composition</h5>
+      <p>Some moons, like Triton (Neptune's moon), have a mix of rocky and icy materials.</p>
+  </div>
+  </div>
+</section>
+
+<!--MEDIA-->
+
+<section class="media">
+  <h1>Media</h1>
+<div class="container">
+  <div class="vid">
+    <iframe src="https://www.youtube.com/embed/6AviDjR9mmo?si=SdgPdCYKRIIm5xWT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+</section>
+
+</body>
+<footer>
+  <div>
+    <ul class="footer">
+      <li> <a href="Cosmic.html">Home</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="About Us.html">About Us</a></li>    
+      <li><a href="Resources.html">Resources</a></li>
+    </ul> 
+  </div>
+  <p> © CosmicAtlas. All Rights Reserved.</p>
+</footer>
+</html>

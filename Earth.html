@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicAtlas</title>
+ 
+  <link rel="icon" type="image/x-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<style>
+  *{
+  margin: 0;
+  padding: 0;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  font-family: "Orbitron", sans-serif;
+}
+
+.nav-link{
+  color: white;
+  margin-right: 30px;
+  transition: 400ms;
+}
+
+.nav-link:hover{
+  color: rgba(0, 255, 255, 0.768);
+}
+
+
+.navbar-brand img{
+  height: 33px;
+  width: auto;
+}
+
+
+.navbar-toggler-icon{
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")
+}
+
+.back{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)), url(earth.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+
+#earth{
+  position: absolute;
+  top: 85%;
+  width: 100%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: white;
+  padding: 10px;
+}
+
+#earth h1{
+  font-weight: 800;
+  font-size: 3.5rem;
+  letter-spacing: 7px;
+  width: 40%;
+  padding-left: 30px;
+}
+
+#earth p{
+  font-size: 1.2rem;
+  line-height: 30px;
+  padding-left: 30px;
+}
+
+.text-light p{
+  line-height: 40px;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.text-light h2{
+  letter-spacing: 3px;
+  font-weight: bold;
+  font-size: 2.0rem;
+}
+
+.overview{
+  text-align: justify;
+  padding: 60px;
+  background-color: #06283D;
+}
+
+.overview h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+} 
+
+.overview h2,h5{
+  font-weight: bold;
+}
+
+#table{
+  text-align: justify;
+  padding-top: 60px;
+  padding-bottom: 50px;
+}
+
+#table h1{
+  font-size: 30px;
+  font-weight: bold; 
+}
+
+#table th,tr{
+ text-align: center;
+}
+
+
+.media{
+  padding: 50px 0 50px;
+}
+
+.vid iframe{ 
+  width: 100%;
+  height: 500px;
+  padding-bottom: 20px;
+}
+
+.media h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 40px;
+} 
+
+.media h2{
+  padding: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#gallery{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 5px;
+}
+
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+#gallery img {
+  border: 2px solid black;
+  margin: 20px;
+  border-radius: 15px;
+  box-shadow: 4px 7px 7px 6px gray;
+  transition: 400ms;
+  cursor: pointer;
+}
+
+#gallery img:hover{
+  transform: scale(1.03); 
+}
+
+footer{
+  padding: 40px;
+  background-color: #06283D;
+  margin: 0;
+  text-align: center;
+}
+
+footer ul li{
+  display: inline-block;
+}
+
+footer ul li a{
+  text-decoration: none;
+  color: white;
+  display: flex;
+  margin: 20px;
+}
+
+footer p{
+  text-decoration: none;
+  color: white;
+  margin: 20px;
+}
+</style>
+
+<body>
+  <header>
+    <div class="back">
+    <nav class="navbar navbar-expand-lg p-4" id="navbar">
+      <div class="container">
+      <a href="Cosmic.html" class="navbar-brand"><img src="CosmicAtlas Logo.png" alt="CosmicAtlas"></a>
+      <button 
+      class="navbar-toggler" 
+      type="button" 
+      data-bs-toggle="collapse" 
+      data-bs-target="#navmenu">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navmenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a href="Contacts.html" class="nav-link">Contacts</a>
+          </li>
+          <li class="nav- item">
+            <a href="About Us.html" class="nav-link">About Us</a>
+          </li>    
+          <li class="nav-item">
+            <a href="Resources.html" class="nav-link">Resources</a>
+          </li>
+      </ul> 
+     </div>
+    </nav>
+      <div class="container" id="earth">
+       <h1>Earth</h1>
+       <p> The third planet from the Sun and the only astronomical object known to harbor life.</p>
+      </div>
+      </div>
+    </header>    
+</div>
+
+
+<!--TABLE INFO-->
+
+<section>
+  <div class="text-black">
+    <div class="container">
+    <div id="table">
+      <table class="table">
+        <thead>
+        </thead>
+        <tbody>
+        
+          <tr>
+            <th>Equatorial circumference</th>
+            <td>24,901 miles</td>
+          </tr>
+          <tr>
+            <th>Surface Area</th>
+            <td>196,900,000 square miles</td>
+          </tr>  
+          <tr>
+            <th>Density</th>
+            <td>5.513 g/cm3</td>
+          </tr> 
+          <th>Volume</th>
+          <td> 1,086,000,000 km3</td>
+        </tr>   
+          <tr>
+            <th>Radius</th>
+            <td>3,959 miles</td>
+          </tr>
+          <tr>
+            <th>Mass</th>
+            <td>1.1952E25 kg</td>
+          </tr>  
+          </tbody>
+      </table>
+      
+  </div>
+  </div>
+  </div>
+</section>
+
+
+<!--ABOUT-->
+
+<section class="overview">
+  <div class="container">
+    <div class="text-white">
+    <h1><span class="text-info">About</span> Earth </h1>
+    <p><br>Earth is the planet we live on, one of eight planets in our solar system and the only known place in the universe to support life.
+      It is the third planet from the sun, after Mercury and Venus, and before Mars. Earth is the largest and most massive of the rocky inner planets, although it is dwarfed by the gas giants beyond the Asteroid Belt.
+    </p><br><br>
+    <h2>Structure</h2><br>
+    <p>
+      The structure of the earth is divided into major components: the crust, the mantle, the outer core, the inner core and its atmosphere. Each layer has a unique chemical composition, physical state, and can impact life on Earth's surface. Movement in the mantle caused by variations in heat from the core, cause the plates to shift, which can cause earthquakes and volcanic eruptions. These natural hazards then change our landscape, and in some cases, threaten lives and property. Learn more about how the earth is constructed with these classroom resources.
+      <h5>A. Crust</h5>
+      <p>Describes as the outermost shell of a terrestrial planet. Earth's crust is generally divided into older, thicker continental crust and younger, denser oceanic crust. The dynamic geology of Earth's crust is informed by plate tectonics.</p>
+      <h5>B. Mantle</h5>
+      <p>The mantle is the mostly solid bulk of Earth's interior. The mantle lies between Earth's dense, super-heated core and its thin outer layer, the crust. The mantle is about 2,900 kilometers (1,802 miles) thick, and makes up a whopping 84 percent of Earth’s total volume.
+      </p>
+      <h5>C. Outer Core</h5>
+      <p>The outer core, about 2,200 kilometers (1,367 miles) thick, is mostly composed of liquid iron and nickel. The NiFe alloy of the outer core is very hot, between 4,500° and 5,500° Celsius (8,132° and 9,932° Fahrenheit).</p>
+      <h5>D. Inner Core</h5>
+      <p>The inner core is a hot, dense ball of (mostly) iron. It has a radius of about 1,220 kilometers (758 miles). Temperature in the inner core is about 5,200° Celsius (9,392° Fahrenheit). The pressure is nearly 3.6 million atmosphere (atm).</p>
+      <h5>E. Atmosphere</h5>
+      <p>Earth's atmosphere is composed mainly of nitrogen (about 78%) and oxygen (about 21%). It also contains trace amounts of other gases, including carbon dioxide, argon, and water vapor.</p>
+      <h5>F. Hydrosphere</h5>
+      <p>Earth's hydrosphere includes all forms of water on the planet, such as oceans, seas, lakes, rivers, and groundwater.</p>
+    </p>
+  </div>
+  </div>
+</section>
+
+
+<!--MEDIA-->
+
+<section class="media">
+  <h1>Media</h1>
+<div class="container">
+  <div class="vid">
+    <iframe  src="https://www.youtube.com/embed/HCDVN7DCzYE?si=ESOGwcgKyHZvoF4e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+<h2> Gallery</h2>
+<div id="gallery">
+  <img class="images" src="earthmed5.jpg"style="width:100%;max-width:300px">
+  <img class="images" src="earth.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="earthmed2.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="earthmed3.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="earthmed4.jpg"   style="width:100%;max-width:300px">
+  <img class="images" src="earthmed.jpg"  style="width:100%;max-width:300px">
+ </div>
+
+ <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
+
+<script>
+
+var modal = document.getElementById("myModal");
+var i;
+
+var img = document.getElementsByClassName ("images");
+var modalImg = document.getElementById("img01");
+
+for(i=0;i< img.length;i++)
+ {    
+  img[i].onclick = function(){
+
+  modal.style.display = "block";
+     modalImg.src = this.src;
+
+}
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() { 
+ modal.style.display = "none";
+}
+</script>
+</section>
+
+</body>
+<footer>
+  <div>
+    <ul class="footer">
+      <li> <a href="Cosmic.html">Home</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="About Us.html">About Us</a></li>    
+      <li><a href="Resources.html">Resources</a></li>
+    </ul> 
+  </div>
+  <p> © CosmicAtlas. All Rights Reserved.</p>
+</footer>
+</html>
